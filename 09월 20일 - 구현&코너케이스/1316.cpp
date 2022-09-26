@@ -10,7 +10,7 @@ int main() {
         string word;
 
         cin >> word;
-        vector<char> arr(word.length(), 0);
+        vector<char> arr(word.length(), '0');
 
         //인접한 알파벳이 다르면 배열에 넣기
         arr[0] = word[0];
@@ -25,6 +25,9 @@ int main() {
         bool isGroup = true;
         for (int i = 0; i < arr.size(); i++) {
             for (int j = i + 1; j < arr.size(); j++) {
+                if (arr[j] == '0') {
+                    break;
+                }
                 if (arr[i] == arr[j]) {
                     isGroup = false;
                     break;//배열에 중복된 문자가 있으면 개수 세지않기
@@ -40,3 +43,4 @@ int main() {
     cout << answer;
     return 0;
 }
+
